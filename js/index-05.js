@@ -8,6 +8,7 @@
 /** Time **/
 var time = 5000;
 const temporizador = document.getElementById("temporizador");
+var morto = false;
 
 /** Variáveis do score **/
 var actualPlayer;
@@ -334,10 +335,12 @@ function formatTime (atttime) {
 
 /** Checar o tempo **/
 var checkTiming = function() {
-	if (time == 0){ /** Se o tempo chegar em 0 segundos **/
+	if (time == 0 && morto == false){ /** Se o tempo chegar em 0 segundos **/
 		saveScore(); /** Vai salvar a pontuação **/
 		showRanking(); /** E vai mostrar o ranking **/
 		document.getElementById("game").style.display ="none"; /** E apagar o jogo, deixando só o ranking **/
+		console.log("teste");
+		morto = true;
 	}
 }
 /* O método window.requestAnimationFrame() fala para o navegador que deseja-se realizar
